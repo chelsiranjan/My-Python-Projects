@@ -3,14 +3,11 @@ import random
 
 pygame.init()
 
-width, height = 800, 550
+width, height = 1000 , 550
 screen = pygame.display.set_mode((width, height))
 
 background = pygame.image.load(r'C:\Users\Chelsi\Downloads\Super Mario Bros_ Level editor.jfif')
 background = pygame.transform.scale(background, (width, height))
-
-#player = pygame.image.load(r'')
-#obstacle = pygame.image.load(r'')
 
 ground_y = 460
 
@@ -30,6 +27,15 @@ obstacle_x = width
 obstacle_y = ground_y - obstacle_height
 obstacle_speed = 15
 
+obstacle2_width = 25
+obstacle2_height = 45
+obstacle2_x = width + 400
+obstacle2_y = ground_y - obstacle2_height
+obstacle2_speed = 15
+
+
+score_font = pygame.font.Font(None, 40)
+game_over_font = pygame.font.Font(None, 110)
 font = pygame.font.Font(None, 40)
 
 score = 0
@@ -43,32 +49,47 @@ while running:
         if event.type == pygame.QUIT:
             running = False
 
-    keys = pygame.key.get_pressed()
-    if keys[pygame.K_SPACE] and on_ground:
-        velocity_y = jump_power
-        on_ground = False
+        if event.type == pygame.KEYDOWN:
+            if game_over and event.key == pygame.K_SPACE:
+                running = False
 
-    velocity_y += gravity
+    if not game_over:
+        keys = pygame.key.get_pressed()
+        if keys[pygame.K_SPACE] and on_ground:
+            velocity_y = jump_power
+            on_ground = False
 
-    player_y += velocity_y
+        velocity_y += gravity
 
-    if player_y + player_height >= ground_y:
-        player_y = ground_y - player_height
-        velcity_y = 0
-        on_ground = True
+        player_y += velocity_y
+
+        if player_y + player_height >= ground_y:
+            player_y = ground_y - player_height
+            velcity_y = 0
+            on_ground = True
 
 
-    obstacle_x -= obstacle_speed
+        obstacle_x -= obstacle_speed
+        obstacle2_x -= obstacle2_speed  
 
-    if obstacle_x < -obstacle_width:
-        obstacle_x = width + random.randint(200,500)
-        score +=1
+        if obstacle_x < -obstacle_width:
+            obstacle_x = width + random.randint(200,500)
+            score +=1
 
-    player_rect = pygame.Rect(player_x, player_y, player_width, player_height)
-    obstacle_rect = pygame.Rect(obstacle_x, obstacle_y, obstacle_width, obstacle_height)
+        if obstacle2_x < -obstacle2_width:
+            obstacle2_x = obstacle_x + random.randint(250,400)
+            score +=1
 
-    if player_rect.colliderect(obstacle_rect):
-        game_over = True
+        player_rect = pygame.Rect(player_x, player_y, player_width, player_height)
+        obstacle_rect = pygame.Rect(obstacle_x, obstacle_y, obstacle_width, obstacle_height)
+        obstacle2_rect = pygame.Rect(obstacle2_x, obstacle2_y, obstacle2_width, obstacle2_height)
+       
+
+        if player_rect.colliderect(obstacle_rect):
+            game_over = True
+
+        if player_rect.colliderect(obstacle2_rect):
+            game_over = True
 
 
     screen.blit(background, (0, 0))
@@ -76,11 +97,20 @@ while running:
 
     pygame.draw.rect(screen,(0, 0, 255),(player_x, player_y,player_width, player_height))
     pygame.draw.rect(screen,(255, 0, 0),(obstacle_x, obstacle_y,obstacle_width, obstacle_height))
+    pygame.draw.rect(screen,(200,0,0),(obstacle2_x, obstacle2_y, obstacle2_width, obstacle2_height))
 
     score_text = font.render(f'Score: {score}',True,(0, 0, 0))
     screen.blit(score_text, (20, 20))
 
 
+    if game_over:
+        game_over_text = game_over_font.render('GAME OVER',True,(0, 0, 0))
+        game_over_rect = game_over_text.get_rect(center=(width // 2, height // 2 - 40))
+        screen.blit(game_over_text, game_over_rect)
+
+        restart_text = font.render('PRESS SPACE TO EXIT', True, (0, 0, 0))
+        restart_rect = restart_text.get_rect(center=(width // 2, height // 2 + 40))
+        screen.blit(restart_text, restart_rect)
 
 
     pygame.display.update()
