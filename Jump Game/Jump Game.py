@@ -40,6 +40,13 @@ font = pygame.font.Font(None, 40)
 
 score = 0
 
+shake = False
+shake_duration = 30
+shake_timer = 0
+shake_intensity = 5 
+
+game_over = False
+
 running = True
 game_over = False
 clock = pygame.time.Clock()
@@ -53,6 +60,7 @@ while running:
             if game_over and event.key == pygame.K_SPACE:
                 running = False
 
+        
     if not game_over:
         keys = pygame.key.get_pressed()
         if keys[pygame.K_SPACE] and on_ground:
@@ -87,12 +95,34 @@ while running:
 
         if player_rect.colliderect(obstacle_rect):
             game_over = True
+            shake = True
+            shake_timer = shake_duration
 
         if player_rect.colliderect(obstacle2_rect):
             game_over = True
+            shake = True
+            shake_timer = shake_duration
+
+    else:
+        if shake_timer > 0:
+            shake_timer -= 1
+        else:
+            shake = False
+            game_over = True
 
 
-    screen.blit(background, (0, 0))
+    offset_x = 0
+    offset_y = 0
+
+    if shake:
+        offset_x = random.randint(-shake_intensity, shake_intensity)
+        offset_y = random.randint(-shake_intensity, shake_intensity)
+
+
+
+    screen.fill((0, 0, 0))
+
+    screen.blit(background, (offset_x, offset_y))
 
 
     pygame.draw.rect(screen,(0, 0, 255),(player_x, player_y,player_width, player_height))
@@ -108,9 +138,10 @@ while running:
         game_over_rect = game_over_text.get_rect(center=(width // 2, height // 2 - 40))
         screen.blit(game_over_text, game_over_rect)
 
-        restart_text = font.render('PRESS SPACE TO EXIT', True, (0, 0, 0))
-        restart_rect = restart_text.get_rect(center=(width // 2, height // 2 + 40))
-        screen.blit(restart_text, restart_rect)
+        exit_text = font.render('PRESS SPACE TO EXIT', True, (0, 0, 0))
+        exit_rect = exit_text.get_rect(center=(width // 2, height // 2 + 40))
+        screen.blit(exit_text, exit_rect)
+
 
 
     pygame.display.update()
