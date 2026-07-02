@@ -81,11 +81,11 @@ while running:
         obstacle2_x -= obstacle2_speed  
 
         if obstacle_x < -obstacle_width:
-            obstacle_x = width + random.randint(200,500)
+            obstacle_x = width + random.randint(200,700)
             score +=1
 
         if obstacle2_x < -obstacle2_width:
-            obstacle2_x = obstacle_x + random.randint(250,400)
+            obstacle2_x = width + random.randint(200,700)
             score +=1
 
         player_rect = pygame.Rect(player_x, player_y, player_width, player_height)
