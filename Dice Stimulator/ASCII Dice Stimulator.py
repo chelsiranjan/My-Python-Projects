@@ -1,0 +1,62 @@
+import random
+
+one = """
+┌───────┐
+│       │
+│   ●   │
+│       │
+└───────┘
+"""
+
+two = """
+┌───────┐
+│ ●     │
+│       │
+│     ● │
+└───────┘
+"""
+
+three = """
+┌───────┐
+│ ●     │
+│   ●   │
+│     ● │
+└───────┘
+"""
+
+four = """
+┌───────┐
+│ ●   ● │
+│       │
+│ ●   ● │
+└───────┘
+"""
+
+five = """
+┌───────┐
+│ ●   ● │
+│   ●   │
+│ ●   ● │
+└───────┘
+"""
+
+six = """
+┌───────┐
+│ ●   ● │
+│ ●   ● │
+│ ●   ● │
+└───────┘
+"""
+
+
+outcomes_list = [one, two, three, four, five, six]
+
+
+print('This is a dice stimulator')
+x = 'c'
+while x == 'c':
+    random_outcome = random.sample(outcomes_list, 2)
+    for outcome in random_outcome:
+        print(outcome)
+    
+    x =  input("Press c to roll again ")
