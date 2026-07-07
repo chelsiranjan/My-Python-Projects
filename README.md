@@ -1,6 +1,6 @@
-## 👋 Hey there, I'm Chelsi!
+### 👋 Hey there, I'm Chelsi!
 
-# 🚀 Welcome to My Python Repository
+## 🚀 Welcome to My Python Repository
 
 This repository documents my journey of learning **Python** through hands-on projects. Instead of only learning theory, I believe the best way to improve is by building real applications, solving problems, and experimenting with new ideas.
 
@@ -10,7 +10,7 @@ As I continue exploring Python and related technologies, I'll keep adding new pr
 
 ---
 
-# 💻 What's Inside?
+## 💻 What's Inside?
 
 ✨ Beginner-Friendly Python Projects
 🎮 Mini Games
@@ -24,7 +24,7 @@ As I continue exploring Python and related technologies, I'll keep adding new pr
 
 ---
 
-# 📚 Current Projects
+## 📚 Current Projects
 
 * 🧮 BMI Calculator
 * 🎲 Dice Simulator
@@ -37,7 +37,7 @@ As I continue exploring Python and related technologies, I'll keep adding new pr
 
 ---
 
-# 🌱 Currently Learning
+## 🌱 Currently Learning
 
 * 🐍 Python
 * 📊 NumPy
@@ -49,7 +49,7 @@ As I continue exploring Python and related technologies, I'll keep adding new pr
 
 ---
 
-# 🛠️ Technologies & Concepts Used
+## 🛠️ Technologies & Concepts Used
 
 * Python
 * Object-Oriented Programming (OOP)
@@ -65,7 +65,7 @@ As I continue exploring Python and related technologies, I'll keep adding new pr
 
 ---
 
-# 🎯 My Goal
+## 🎯 My Goal
 
 My goal is to become a skilled software developer by consistently building practical projects and learning new technologies.
 
@@ -82,7 +82,7 @@ Every new project pushes me to learn something new and become a better programme
 
 ---
 
-# 👩‍💻 About Me
+## 👩‍💻 About Me
 
 Hi! I'm **Chelsi Ranjan**, a Computer Science student passionate about technology and continuous learning.
 
@@ -92,7 +92,7 @@ Outside of coding, I enjoy creating content, singing, photography, painting, and
 
 ---
 
-# ⭐ Support
+## ⭐ Support
 
 If you found this repository helpful or interesting, consider giving it a **⭐ Star**.
 
@@ -100,13 +100,13 @@ Your support motivates me to keep learning, building, and sharing more exciting 
 
 ---
 
-## 📬 Let's Connect
+### 📬 Let's Connect
 
 Feel free to explore the projects, suggest improvements, or connect with me through GitHub.
 
 Thanks for stopping by!
 
-### Happy Coding! 🚀
+#### Happy Coding! 🚀
 
 ---
 
