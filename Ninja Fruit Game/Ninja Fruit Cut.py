@@ -3,7 +3,7 @@ import random
 
 pygame.init()
 
-WIDTH, HEIGHT = 800, 600
+WIDTH, HEIGHT = 800, 580
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption('Fruit Ninja')
 
@@ -11,13 +11,17 @@ clock = pygame.time.Clock()
 
 gravity = 0.2
 fruits = []
-bombs =[]
+bombs = []
+
+score = 0
 
 fruit_spawn_timer = 0
 fruit_spawn_delay = random.randint(20, 50)
 
 bomb_spawn_timer = 0
-bomb_spawn_delay = random.randint(120,300)
+bomb_spawn_delay = random.randint(120, 300)
+
+fontscore = pygame.font.SysFont(None, 40)
 
 
 def create_fruit():
@@ -30,9 +34,12 @@ def create_fruit():
         'color': (
             random.randint(50, 255),
             random.randint(50, 255),
-            random.randint(50, 255)),
+            random.randint(50, 255),
+        ),
         'vx': random.uniform(-2, 2),
-        'vy': random.uniform(-12, -9)}
+        'vy': random.uniform(-12, -9),
+    }
+
 
 def create_bomb():
     radius = 35
@@ -42,9 +49,10 @@ def create_bomb():
         'y': HEIGHT + radius,
         'radius': radius,
         'color': (40, 40, 40),
-        'color_outline': (255,0,0),
+        'color_outline': (255, 0, 0),
         'vx': random.uniform(-2, 2),
-        'vy': random.uniform(-12, -9)}
+        'vy': random.uniform(-12, -9),
+    }
 
 
 running = True
@@ -69,17 +77,39 @@ while running:
         bomb_spawn_timer = 0
         bomb_spawn_delay = random.randint(120, 300)
 
+    if pygame.mouse.get_pressed()[0]:
+        mx, my = pygame.mouse.get_pos()
+
+        for fruit in fruits[:]:
+            dx = mx - fruit['x']
+            dy = my - fruit['y']
+
+            if dx * dx + dy * dy <= fruit['radius'] ** 2:
+                fruits.remove(fruit)
+                score += 1
+
+        for bomb in bombs[:]:
+            dx = mx - bomb['x']
+            dy = my - bomb['y']
+
+            if dx * dx + dy * dy <= bomb['radius'] ** 2:
+                running = False
 
     screen.fill((30, 30, 30))
 
+    score_text = fontscore.render(f'Score: {score}', True, (255, 255, 255))
+    screen.blit(score_text, (10, 10))
 
-    for fruit in fruits[:]:  
+    for fruit in fruits[:]:
         fruit['x'] += fruit['vx']
         fruit['y'] += fruit['vy']
 
         fruit['vy'] += gravity
 
-        pygame.draw.circle(screen,fruit['color'],(int(fruit['x']), int(fruit['y'])),fruit['radius'])
+        pygame.draw.circle(
+            screen,
+            fruit['color'],
+            (int(fruit['x']), int(fruit['y'])),fruit['radius'])
 
         if fruit['y'] - fruit['radius'] > HEIGHT:
             fruits.remove(fruit)
@@ -90,9 +120,10 @@ while running:
 
         bomb['vy'] += gravity
 
-        pygame.draw.circle(screen,bomb['color'],(int(bomb['x']), int(bomb['y'])),bomb['radius'])
-        pygame.draw.circle(screen,bomb['color_outline'],(int(bomb['x']), int(bomb['y'])),bomb['radius'], 3)
-        
+        pygame.draw.circle(screen, bomb['color'],(int(bomb['x']), int(bomb['y'])), bomb['radius'])
+
+        pygame.draw.circle( screen,bomb['color_outline'], (int(bomb['x']), int(bomb['y'])),bomb['radius'],3)
+
         if bomb['y'] - bomb['radius'] > HEIGHT:
             bombs.remove(bomb)
 
