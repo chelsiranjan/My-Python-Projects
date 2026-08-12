@@ -37,18 +37,6 @@ As I continue exploring Python and related technologies, I'll keep adding new pr
 
 ---
 
-## 🌱 Currently Learning
-
-* 🐍 Python
-* 📊 NumPy
-* 🐼 Pandas
-* 📈 Data Analysis
-* 🤖 Machine Learning
-* 👁️ OpenCV
-* 🧠 Data Structures & Algorithms
-
----
-
 ## 🛠️ Technologies & Concepts Used
 
 * Python
@@ -62,22 +50,14 @@ As I continue exploring Python and related technologies, I'll keep adding new pr
 * Pandas
 * yt-dlp / pytube
 * Git & GitHub
+* Matplotlib
+* Seaborn
 
 ---
 
 ## 🎯 My Goal
 
 My goal is to become a skilled software developer by consistently building practical projects and learning new technologies.
-
-Through this repository, I'm documenting my progress while exploring areas like:
-
-* 💻 Software Development
-* 📊 Data Analysis
-* 🤖 Machine Learning
-* 👁️ Computer Vision
-* ⚡ Automation
-* 🧠 Problem Solving & DSA
-
 Every new project pushes me to learn something new and become a better programmer.
 
 ---
@@ -86,7 +66,7 @@ Every new project pushes me to learn something new and become a better programme
 
 Hi! I'm **Chelsi Ranjan**, a Computer Science student passionate about technology and continuous learning.
 
-I enjoy turning ideas into projects and love exploring different areas of programming. Currently, I'm focused on strengthening my Python skills while gradually diving into Data Science, Machine Learning, and Computer Vision.
+I enjoy turning ideas into projects and love exploring different areas of programming. Currently, I'm focused on strengthening my Python skills while gradually diving into Data Science, Machine Learning, and Computer Vision, Data Structure and Algorithms.
 
 Outside of coding, I enjoy creating content, singing, photography, painting, and documenting my learning journey.
 
