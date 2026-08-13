@@ -66,16 +66,13 @@ Every new project pushes me to learn something new and become a better programme
 
 Hi! I'm **Chelsi Ranjan**, a Computer Science student passionate about technology and continuous learning.
 
-I enjoy turning ideas into projects and love exploring different areas of programming. Currently, I'm focused on strengthening my Python skills while gradually diving into Data Science, Machine Learning, and Computer Vision, Data Structure and Algorithms.
-
-Outside of coding, I enjoy creating content, singing, photography, painting, and documenting my learning journey.
+I enjoy turning ideas into projects and love exploring different areas of programming. Currently, I'm focused on strengthening my Python skills while gradually diving into Data Science, Machine Learning, and Computer Vision, Data Structure and Algorithms. Outside of coding, I enjoy creating content, singing, photography, painting, and documenting my learning journey.
 
 ---
 
 ## ⭐ Support
 
 If you found this repository helpful or interesting, consider giving it a **⭐ Star**.
-
 Your support motivates me to keep learning, building, and sharing more exciting projects with the community.
 
 ---
@@ -83,7 +80,6 @@ Your support motivates me to keep learning, building, and sharing more exciting 
 ### 📬 Let's Connect
 
 Feel free to explore the projects, suggest improvements, or connect with me through GitHub.
-
 Thanks for stopping by!
 
 #### Happy Coding! 🚀
